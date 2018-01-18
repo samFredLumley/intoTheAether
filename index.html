@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Into the aether</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <style media="screen">
+
+    .centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      /* bring your own prefixes */
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #text-input {
+      font-size: 13pt;
+    }
+
+    </style>
+  </head>
+  <body>
+
+
+    <div id="input-section" class="centered">
+
+      <h1>Just write.</h1>
+
+      <input id="text-input" type="text" name="text" onkeyup="uniCharCode(event)" onkeydown="uniKeyCode(event)">
+
+    </div>
+
+    <div id="output-section">
+
+      <p id="written-text"></p>
+
+    </div>
+
+  </body>
+
+  <script>
+
+  function addWord() {
+
+  }
+
+  function uniCharCode(event) {
+      var char = event.which || event.keyCode;
+      // If the key pressed is a space or enter, add input text to para and clear input box
+      if (char == 32 || char == 13) {
+        var newWord = document.getElementById('text-input').value;
+        $("#written-text").append(newWord);
+        if (char == 13) {
+          $("#written-text").append("<br><br>");
+        }
+        document.getElementById('text-input').value = '';
+      }
+  }
+
+
+
+  </script>
+
+</html>
