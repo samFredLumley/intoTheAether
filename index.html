@@ -36,6 +36,10 @@
       outline: none;
     }
 
+    #written-text {
+      display: none;
+    }
+
     </style>
   </head>
   <body>
@@ -52,6 +56,9 @@
 
       <div id="output-section">
 
+        <button type="button" name="button" onclick="seeText()">See text</button>
+        <button type="button" name="button" onclick="hideText()">Hide text</button>
+
         <p id="written-text"></p>
 
       </div>
@@ -62,9 +69,6 @@
 
   <script>
 
-  function addWord() {
-
-  }
 
   function uniCharCode(event) {
       var char = event.which || event.keyCode;
@@ -72,6 +76,7 @@
       if (char == 32 || char == 13) {
         var newWord = document.getElementById('text-input').value;
         $("#written-text").append(newWord);
+        // Interpret enter
         if (char == 13) {
           $("#written-text").append("<br><br>");
         }
@@ -79,9 +84,19 @@
       }
   }
 
+  function seeText() {
+    $('#written-text').show();
+  }
+
+  function hideText() {
+    $('#written-text').hide();
+  }
+
   $(document.body).click( function() {
     document.getElementById('text-input').focus();
   });
+
+
 
 
   </script>
