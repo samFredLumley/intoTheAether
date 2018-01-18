@@ -40,6 +40,9 @@
       display: none;
     }
 
+    #last-line {
+    }
+
     </style>
   </head>
   <body>
@@ -56,10 +59,12 @@
 
       <div id="output-section">
 
+        <button type="button" name="button" onclick="seeLastLine()">See last line</button>
         <button type="button" name="button" onclick="seeText()">See text</button>
         <button type="button" name="button" onclick="hideText()">Hide text</button>
 
         <p id="written-text"></p>
+        <p id="last-line"></p>
 
       </div>
 
@@ -90,6 +95,13 @@
 
   function hideText() {
     $('#written-text').hide();
+  }
+
+  function seeLastLine() {
+    var lastLine = $('#written-text').text().slice(-50);
+    $('#last-line').html(lastLine);
+    $('#last-line').show();
+
   }
 
   $(document.body).click( function() {
